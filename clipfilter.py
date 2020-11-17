@@ -12,13 +12,13 @@ with open("rawchannel.txt", 'r+') as f:
 		if(line[0:32]=="https://www.twitch.tv/m0xyy/clip"):
 			for i in range(len(line)):
 				if (line[i]=="?"):
-					line = line[0:i]
+					line = line[0:i]+"\n"
 					break
 			for link in arr:
 				if line == link:
 					alreadylinked=True
 			if (not alreadylinked):
-				arr.append(line+"\n")
+				arr.append(line)
 print(arr)
 with open("links.txt", 'w') as f:
 	for i in arr:
